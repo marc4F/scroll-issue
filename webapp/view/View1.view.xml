@@ -1,0 +1,40 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.f.semantic"
+	xmlns:fb="sap.ui.comp.filterbar" controllerName="test.scroll.controller.View1" height="100%">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<semantic:SemanticPage showFooter="false" toggleHeaderOnTitleClick="false" busyIndicatorDelay="0" titleAreaShrinkRatio="0:0:2"
+					headerPinnable="false">
+					<semantic:titleHeading>
+						<Title text="My App"></Title>
+					</semantic:titleHeading>
+					<semantic:headerContent>
+						<Select id="statusSelect" change=".onFilterChangeApplyFilters">
+							<items>
+								<core:Item text="" key="all"></core:Item>
+								<core:Item text="new" key="new"></core:Item>
+								<core:Item text="old" key="old"></core:Item>
+							</items>
+						</Select>
+					</semantic:headerContent>
+					<semantic:content>
+						<Table id="table" items="{path: '/list'}" growing="false" growingScrollToLoad="false">
+							<columns>
+								<Column>
+									<Text text="Description" id="colDescription"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem vAlign="Middle">
+									<cells>
+										<Text text="{description}" id="description"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</semantic:content>
+				</semantic:SemanticPage>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
